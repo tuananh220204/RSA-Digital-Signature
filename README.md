@@ -124,47 +124,51 @@ print(f"Chữ ký hợp lệ: {is_valid}")
 ## 📁 Cấu trúc dự án
 
 ```
-RSA-Digital-Signature/
-├── rsa_signature/                 # Package chính
-│   ├── __init__.py               # Khởi tạo package
-│   ├── cli.py                    # Command line interface
-│   ├── key_manager.py            # Quản lý khóa RSA
-│   ├── signer.py                 # Chức năng ký file
-│   ├── verifier.py               # Chức năng xác minh
-│   ├── webapp.py                 # Web application
-│   ├── timestamp.py              # Dịch vụ timestamp
-│   └── utils.py                  # Tiện ích chung
-├── tests/                        # Test cases
-│   ├── test_key_manager.py       # Test quản lý khóa
-│   └── test_signer_verifier.py   # Test ký và xác minh
-├── docs/                         # Tài liệu
-│   └── images/                   # Hình ảnh minh họa
-├── requirements.txt              # Thư viện phụ thuộc
-├── setup.py                      # Cấu hình cài đặt
-└── README.md                     # Tài liệu này
+RSA Digital Signature/
+├── README.md                          # Tài liệu hướng dẫn dự án
+├── requirements.txt                   # Danh sách thư viện phụ thuộc
+├── setup.py                           # File cấu hình cài đặt package
+├── rsa_signature.log                  # File log của ứng dụng
+│
+├── rsa_signature/                     # Package chính của dự án
+│   ├── __init__.py                    # File khởi tạo package
+│   ├── cli.py                         # Giao diện dòng lệnh (CLI)
+│   ├── key_manager.py                 # Module quản lý khóa RSA
+│   ├── signer.py                      # Module ký số
+│   ├── verifier.py                    # Module xác thực chữ ký
+│   ├── utils.py                       # Các hàm tiện ích
+│   ├── timestamp.py                   # Module xử lý timestamp
+│   ├── webapp.py                      # Ứng dụng web Flask
+│   │
+│   └── templates/                     # Thư mục chứa template HTML
+│       ├── base.html                  # Template cơ sở
+│       ├── index.html                 # Trang chủ
+│       ├── generate_keys.html         # Trang tạo khóa
+│       ├── keys_generated.html        # Trang hiển thị khóa đã tạo
+│       ├── sign_file.html             # Trang ký file
+│       ├── file_signed.html           # Trang hiển thị file đã ký
+│       ├── verify_signature.html      # Trang xác thực chữ ký
+│       └── verification_result.html   # Trang kết quả xác thực
+│
+├── tests/                             # Thư mục chứa test cases
+│   ├── test_key_manager.py            # Test cho key_manager
+│   └── test_signer_verifier.py        # Test cho signer và verifier
+│
+└── rsa_signature_system.egg-info/     # Thông tin package (tự động tạo)
+    ├── PKG-INFO                       # Thông tin package
+    ├── SOURCES.txt                    # Danh sách source files
+    ├── dependency_links.txt           # Liên kết dependencies
+    ├── entry_points.txt               # Entry points
+    ├── requires.txt                   # Requirements
+    └── top_level.txt                  # Top level packages
 ```
 
-### Chi tiết các modules
+## ✅ Công nghệ sử dụng
 
-#### 🔑 `key_manager.py`
-- Tạo cặp khóa RSA (2048/3072 bit)
-- Lưu trữ và tải khóa từ file PEM
-- Bảo vệ khóa riêng bằng mật khẩu
-
-#### ✍️ `signer.py`
-- Ký file bằng thuật toán RSA-PSS
-- Hỗ trợ định dạng binary và base64
-- Hash file bằng SHA-256
-
-#### ✅ `verifier.py`
-- Xác minh chữ ký RSA-PSS
-- Kiểm tra tính toàn vẹn file
-- Hỗ trợ nhiều định dạng chữ ký
-
-#### 🌐 `webapp.py`
-- Giao diện web với Flask
-- Upload và xử lý file
-- Giao diện thân thiện cho người dùng
+- **Python**: Ngôn ngữ lập trình chính
+- **Flask**: Framework web cho giao diện web
+- **RSA Cryptography**: Thuật toán mã hóa RSA cho chữ ký số
+- **HTML Templates**: Giao diện web thân thiện với người dùng
 
 ## 🎨 Giao diện sử dụng
 
