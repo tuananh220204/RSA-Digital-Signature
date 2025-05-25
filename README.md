@@ -5,7 +5,6 @@
 <!-- Chèn ảnh minh họa tại đây -->
 ![image](https://github.com/user-attachments/assets/6963b6af-4486-4b6b-bf47-a3943a2477bb)
 
-)
 *Giao diện web của hệ thống chữ ký số RSA*
 
 ## 🚀 Tính năng chính
@@ -169,12 +168,13 @@ RSA-Digital-Signature/
 
 ## 🎨 Giao diện sử dụng
 
-### Command Line Interface
-![CLI Demo](docs/images/cli-demo.png)
-*Sử dụng qua dòng lệnh*
+### Tạo cặp khóa RSA
+![image](https://github.com/user-attachments/assets/7a8766b0-9f2e-4920-b995-382f3cd2f346)
 
-### Web Interface
-![Web Interface](docs/images/web-interface.png)
+
+### Ký file bằng RSA-PSS
+![image](https://github.com/user-attachments/assets/33427fcd-538d-4061-8f54-83a613332109)
+
 *Giao diện web để tạo khóa, ký và xác minh file*
 
 ## 🧪 Chạy Tests
@@ -209,7 +209,7 @@ python -m pytest tests/ --cov=rsa_signature
 
 **Hà Tuấn Anh**
 - GitHub: [@tuananh220204](https://github.com/tuananh220204)
-- Email: tuananh220204@example.com
+- Email: tuananh22022004@gmail.com
 
 ## 🤝 Đóng góp
 
@@ -254,7 +254,7 @@ SOFTWARE.
 Nếu bạn gặp vấn đề hoặc có câu hỏi:
 
 - Tạo [Issue](https://github.com/tuananh220204/RSA-Digital-Signature/issues) trên GitHub
-- Gửi email: tuananh220204@example.com
+- Gửi email: tuananh22022004@gmail.com
 - Xem [Wiki](https://github.com/tuananh220204/RSA-Digital-Signature/wiki) để có thêm tài liệu
 
 ---
