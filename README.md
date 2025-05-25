@@ -190,48 +190,6 @@ python -m pytest tests/test_key_manager.py -v
 python -m pytest tests/ --cov=rsa_signature
 ```
 
-## 🚀 Chạy với Visual Studio Code
-
-1. Mở folder dự án trong VS Code
-2. Chọn Python interpreter từ virtual environment
-3. Cài đặt extension Python
-4. Chạy file cụ thể:
-   - Mở file `cli.py` hoặc `webapp.py`
-   - Nhấn `F5` hoặc `Ctrl+F5` để chạy
-
-## 📝 Ví dụ sử dụng
-
-### Ví dụ 1: Ký file PDF
-```bash
-# Tạo khóa
-rsa-signature genkey --key-size 2048 --private-key my_private.pem --public-key my_public.pem
-
-# Ký file
-rsa-signature sign contract.pdf --private-key my_private.pem --signature contract.pdf.sig
-
-# Xác minh
-rsa-signature verify contract.pdf contract.pdf.sig --public-key my_public.pem
-```
-
-### Ví dụ 2: Sử dụng trong Python
-```python
-from rsa_signature import RSAKeyManager, RSASigner, RSAVerifier
-
-# Workflow hoàn chỉnh
-key_mgr = RSAKeyManager()
-key_mgr.generate_keypair()
-key_mgr.save_private_key("key.pem")
-key_mgr.save_public_key("key.pub")
-
-# Ký
-signer = RSASigner()
-sig_path = signer.sign_and_save("data.txt", "key.pem")
-
-# Xác minh
-verifier = RSAVerifier()
-valid = verifier.verify_file("data.txt", sig_path, "key.pub")
-```
-
 ## 🔐 Bảo mật
 
 ### Khuyến nghị bảo mật
