@@ -37,10 +37,10 @@
 
 ### Thư viện phụ thuộc
 ```
-cryptography>=41.0.0    # Mã hóa và chữ ký số
-click>=8.1.0           # Command line interface
-flask>=2.3.0           # Web application
-werkzeug>=2.3.0        # Web server utilities
+cryptography>=41.0.0     # Mã hóa và chữ ký số
+click>=8.1.0             # Command line interface
+flask>=2.3.0             # Web application
+werkzeug>=2.3.0          # Web server utilities
 ```
 
 ## 🛠️ Cài đặt & Chạy chương trình
@@ -125,42 +125,42 @@ print(f"Chữ ký hợp lệ: {is_valid}")
 
 ```
 RSA Digital Signature/
-├── README.md                          # Tài liệu hướng dẫn dự án
-├── requirements.txt                   # Danh sách thư viện phụ thuộc
-├── setup.py                           # File cấu hình cài đặt package
-├── rsa_signature.log                  # File log của ứng dụng
+├── README.md                            # Tài liệu hướng dẫn dự án
+├── requirements.txt                     # Danh sách thư viện phụ thuộc
+├── setup.py                             # File cấu hình cài đặt package
+├── rsa_signature.log                    # File log của ứng dụng
 │
-├── rsa_signature/                     # Package chính của dự án
-│   ├── __init__.py                    # File khởi tạo package
-│   ├── cli.py                         # Giao diện dòng lệnh (CLI)
-│   ├── key_manager.py                 # Module quản lý khóa RSA
-│   ├── signer.py                      # Module ký số
-│   ├── verifier.py                    # Module xác thực chữ ký
-│   ├── utils.py                       # Các hàm tiện ích
-│   ├── timestamp.py                   # Module xử lý timestamp
-│   ├── webapp.py                      # Ứng dụng web Flask
+├── rsa_signature/                       # Package chính của dự án
+│   ├── __init__.py                      # File khởi tạo package
+│   ├── cli.py                           # Giao diện dòng lệnh (CLI)
+│   ├── key_manager.py                   # Module quản lý khóa RSA
+│   ├── signer.py                        # Module ký số
+│   ├── verifier.py                      # Module xác thực chữ ký
+│   ├── utils.py                         # Các hàm tiện ích
+│   ├── timestamp.py                     # Module xử lý timestamp
+│   ├── webapp.py                        # Ứng dụng web Flask
 │   │
-│   └── templates/                     # Thư mục chứa template HTML
-│       ├── base.html                  # Template cơ sở
-│       ├── index.html                 # Trang chủ
-│       ├── generate_keys.html         # Trang tạo khóa
-│       ├── keys_generated.html        # Trang hiển thị khóa đã tạo
-│       ├── sign_file.html             # Trang ký file
-│       ├── file_signed.html           # Trang hiển thị file đã ký
-│       ├── verify_signature.html      # Trang xác thực chữ ký
-│       └── verification_result.html   # Trang kết quả xác thực
+│   └── templates/                       # Thư mục chứa template HTML
+│       ├── base.html                    # Template cơ sở
+│       ├── index.html                   # Trang chủ
+│       ├── generate_keys.html           # Trang tạo khóa
+│       ├── keys_generated.html          # Trang hiển thị khóa đã tạo
+│       ├── sign_file.html               # Trang ký file
+│       ├── file_signed.html             # Trang hiển thị file đã ký
+│       ├── verify_signature.html        # Trang xác thực chữ ký
+│       └── verification_result.html     # Trang kết quả xác thực
 │
-├── tests/                             # Thư mục chứa test cases
-│   ├── test_key_manager.py            # Test cho key_manager
-│   └── test_signer_verifier.py        # Test cho signer và verifier
+├── tests/                               # Thư mục chứa test cases
+│   ├── test_key_manager.py              # Test cho key_manager
+│   └── test_signer_verifier.py          # Test cho signer và verifier
 │
-└── rsa_signature_system.egg-info/     # Thông tin package (tự động tạo)
-    ├── PKG-INFO                       # Thông tin package
-    ├── SOURCES.txt                    # Danh sách source files
-    ├── dependency_links.txt           # Liên kết dependencies
-    ├── entry_points.txt               # Entry points
-    ├── requires.txt                   # Requirements
-    └── top_level.txt                  # Top level packages
+└── rsa_signature_system.egg-info/       # Thông tin package (tự động tạo)
+    ├── PKG-INFO                         # Thông tin package
+    ├── SOURCES.txt                      # Danh sách source files
+    ├── dependency_links.txt             # Liên kết dependencies
+    ├── entry_points.txt                 # Entry points
+    ├── requires.txt                     # Requirements
+    └── top_level.txt                    # Top level packages
 ```
 
 ## ✅ Công nghệ sử dụng
