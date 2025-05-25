@@ -215,7 +215,7 @@ python -m pytest tests/ --cov=rsa_signature
 
 ## 🤝 Đóng góp
 
-Chúng tôi hoan nghênh mọi đóng góp! Vui lòng:
+Tôi hoan nghênh mọi đóng góp! Vui lòng:
 
 1. Fork repository
 2. Tạo feature branch (`git checkout -b feature/amazing-feature`)
@@ -261,4 +261,4 @@ Nếu bạn gặp vấn đề hoặc có câu hỏi:
 
 ---
 
-⭐ **Nếu dự án này hữu ích, hãy cho chúng tôi một ngôi sao trên GitHub!** ⭐
+⭐ **Nếu dự án này hữu ích, hãy cho tôi một ngôi sao trên GitHub!** ⭐
