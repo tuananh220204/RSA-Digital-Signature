@@ -173,9 +173,11 @@ RSA-Digital-Signature/
 
 
 ### Ký file bằng RSA-PSS
-![image](https://github.com/user-attachments/assets/33427fcd-538d-4061-8f54-83a613332109)
+![image](https://github.com/user-attachments/assets/481534a8-a970-460c-b426-f909be7bd916)
 
-*Giao diện web để tạo khóa, ký và xác minh file*
+### Xác minh chữ ký RSA-PSS
+![image](https://github.com/user-attachments/assets/7634a39f-45f4-436d-8fe1-0258b0045d32)
+
 
 ## 🧪 Chạy Tests
 
