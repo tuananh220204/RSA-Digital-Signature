@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Kết quả xác minh{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card {% if result.valid %}border-success{% else %}border-danger{% endif %}">
+            <div class="card-header {% if result.valid %}bg-success text-white{% else %}bg-danger text-white{% endif %}">
+                <h4><i class="fas fa-{% if result.valid %}check-circle{% else %}times-circle{% endif %}"></i> Kết quả xác minh</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-{% if result.valid %}success{% else %}danger{% endif %}">
+                    <h5 class="alert-heading">
+                        <i class="fas fa-{% if result.valid %}check{% else %}exclamation-triangle{% endif %}"></i>
+                        {{ result.message }}
+                    </h5>
+                    <hr>
+                    <p class="mb-0 small">
+                        <i class="fas fa-file"></i> File đã kiểm tra: <strong>{{ result.file }}</strong>
+                    </p>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h6><i class="fas fa-info-circle"></i> Thông tin kỹ thuật:</h6>
+                        <ul class="small mb-0">
+                            <li>Thuật toán xác minh: RSA-PSS với SHA-256</li>
+                            <li>Phương pháp hash: SHA-256</li>
+                            <li>Thời gian xác minh: {{ result.timestamp | default("Không có dữ liệu", true) }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="{{ url_for('verify_signature') }}" class="btn btn-info me-2">
+                        <i class="fas fa-redo"></i> Xác minh lại
+                    </a>
+                    <a href="{{ url_for('sign_file') }}" class="btn btn-outline-primary me-2">
+                        <i class="fas fa-signature"></i> Ký file mới
+                    </a>
+                    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                        <i class="fas fa-home"></i> Về trang chủ
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cảnh báo bảo mật -->
+        <div class="alert alert-warning mt-4">
+            <i class="fas fa-shield-alt"></i>
+            <strong>Lưu ý bảo mật:</strong> 
+            {% if result.valid %}
+                Chữ ký hợp lệ không đảm bảo nội dung file an toàn, chỉ xác nhận tính toàn vẹn.
+            {% else %}
+                File có thể đã bị sửa đổi hoặc chữ ký không đúng. Không mở file nếu không tin tưởng nguồn gốc.
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

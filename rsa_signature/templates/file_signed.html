@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}File đã được ký{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card border-success">
+            <div class="card-header bg-success text-white">
+                <h4><i class="fas fa-check-circle"></i> Ký file thành công!</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-success">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Thành công!</strong> File của bạn đã được ký bằng RSA-PSS với SHA-256.
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <i class="fas fa-file fa-2x text-primary mb-2"></i>
+                                <h6 class="card-title">File gốc</h6>
+                                <p class="card-text">{{ original_file }}</p>
+                                <small class="text-muted">File đã được ký</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <i class="fas fa-certificate fa-2x text-success mb-2"></i>
+                                <h6 class="card-title">Chữ ký</h6>
+                                <p class="card-text">{{ signature_file }}</p>
+                                <a href="{{ url_for('download_file', filename=signature_file) }}" 
+                                   class="btn btn-success btn-sm">
+                                    <i class="fas fa-download"></i> Tải chữ ký
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Lưu ý quan trọng:</strong>
+                    <ul class="mb-0 mt-2">
+                        <li><strong>Lưu trữ cả file gốc và file chữ ký</strong> - cần cả hai để xác minh</li>
+                        <li><strong>Không thay đổi file gốc</strong> sau khi ký, nếu không chữ ký sẽ không hợp lệ</li>
+                        <li><strong>Chia sẻ khóa công khai</strong> cho người cần xác minh chữ ký</li>
+                        <li><strong>File chữ ký nhỏ</strong> và có thể gửi kèm file gốc</li>
+                    </ul>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h6><i class="fas fa-info-circle"></i> Thông tin kỹ thuật:</h6>
+                        <ul class="small mb-0">
+                            <li>Thuật toán: RSA-PSS (Probabilistic Signature Scheme)</li>
+                            <li>Hash function: SHA-256</li>
+                            <li>Salt length: Maximum (tối ưu bảo mật)</li>
+                            <li>Mask generation: MGF1 với SHA-256</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="{{ url_for('verify_signature') }}" class="btn btn-info me-2">
+                        <i class="fas fa-search"></i> Xác minh chữ ký
+                    </a>
+                    <a href="{{ url_for('sign_file') }}" class="btn btn-outline-primary me-2">
+                        <i class="fas fa-signature"></i> Ký file khác
+                    </a>
+                    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                        <i class="fas fa-home"></i> Về trang chủ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}</pre>
+    </div>

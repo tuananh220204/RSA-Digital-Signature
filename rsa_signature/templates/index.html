@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="text-center mb-5">
+            <h1 class="display-4"><i class="fas fa-shield-alt text-primary"></i> RSA Digital Signature</h1>
+            <p class="lead">Hệ thống chữ ký số RSA an toàn và đáng tin cậy</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-key fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Tạo cặp khóa RSA</h5>
+                        <p class="card-text">Tạo cặp khóa RSA 2048-bit hoặc 3072-bit với mã hóa mật khẩu</p>
+                        <a href="{{ url_for('generate_keys') }}" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Tạo khóa mới
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-pen-nib fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">Ký file</h5>
+                        <p class="card-text">Ký file bằng RSA-PSS với SHA-256, lưu chữ ký dưới dạng binary hoặc base64</p>
+                        <a href="{{ url_for('sign_file') }}" class="btn btn-success">
+                            <i class="fas fa-signature"></i> Ký file
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-check-circle fa-3x text-info mb-3"></i>
+                        <h5 class="card-title">Xác minh chữ ký</h5>
+                        <p class="card-text">Xác minh tính toàn vẹn của file bằng cách kiểm tra chữ ký RSA-PSS</p>
+                        <a href="{{ url_for('verify_signature') }}" class="btn btn-info">
+                            <i class="fas fa-search"></i> Xác minh chữ ký
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5><i class="fas fa-info-circle"></i> Thông tin hệ thống</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success"></i> Thuật toán: RSA-PSS với SHA-256</li>
+                    <li><i class="fas fa-check text-success"></i> Kích thước khóa: 2048-bit hoặc 3072-bit</li>
+                    <li><i class="fas fa-check text-success"></i> Mã hóa khóa riêng bằng mật khẩu</li>
+                    <li><i class="fas fa-check text-success"></i> Hỗ trợ định dạng chữ ký binary (.sig) và base64 (.b64)</li>
+                    <li><i class="fas fa-check text-success"></i> Giao diện web và command line</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

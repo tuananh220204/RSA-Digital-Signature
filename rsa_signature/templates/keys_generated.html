@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Cặp khóa đã được tạo{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card border-success">
+            <div class="card-header bg-success text-white">
+                <h4><i class="fas fa-check-circle"></i> Tạo cặp khóa thành công!</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-success">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Thành công!</strong> Cặp khóa RSA của bạn đã được tạo và sẵn sàng để tải xuống.
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <i class="fas fa-lock fa-2x text-danger mb-2"></i>
+                                <h6 class="card-title">Khóa riêng (Private Key)</h6>
+                                <p class="card-text small">Giữ bí mật - Dùng để ký file</p>
+                                <a href="{{ url_for('download_file', filename=private_key_path.split('/')[-1]) }}" 
+                                   class="btn btn-danger btn-sm">
+                                    <i class="fas fa-download"></i> Tải khóa riêng
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <i class="fas fa-key fa-2x text-success mb-2"></i>
+                                <h6 class="card-title">Khóa công khai (Public Key)</h6>
+                                <p class="card-text small">Có thể chia sẻ - Dùng để xác minh</p>
+                                <a href="{{ url_for('download_file', filename=public_key_path.split('/')[-1]) }}" 
+                                   class="btn btn-success btn-sm">
+                                    <i class="fas fa-download"></i> Tải khóa công khai
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Quan trọng:</strong>
+                    <ul class="mb-0 mt-2">
+                        <li>Lưu trữ khóa riêng ở nơi an toàn và không chia sẻ với ai</li>
+                        <li>Nếu mất khóa riêng, bạn sẽ không thể ký file được nữa</li>
+                        <li>Khóa công khai có thể chia sẻ để người khác xác minh chữ ký của bạn</li>
+                        <li>Nên sao lưu cả hai khóa ở nhiều nơi khác nhau</li>
+                    </ul>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="{{ url_for('sign_file') }}" class="btn btn-primary me-2">
+                        <i class="fas fa-signature"></i> Bắt đầu ký file
+                    </a>
+                    <a href="{{ url_for('generate_keys') }}" class="btn btn-outline-secondary">
+                        <i class="fas fa-redo"></i> Tạo cặp khóa mới
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}</pre>
+    </div>

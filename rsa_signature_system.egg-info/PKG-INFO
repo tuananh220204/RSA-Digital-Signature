@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: rsa-signature-system
+Version: 1.0.0
+Summary: Hệ thống chữ ký số RSA hoàn chỉnh với Python
+Home-page: https://github.com/yourusername/rsa-signature-system
+Author: RSA Signature System
+Author-email: admin@example.com
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: cryptography>=41.0.0
+Requires-Dist: click>=8.1.0
+Requires-Dist: flask>=2.3.0
+Requires-Dist: werkzeug>=2.3.0

@@ -1,0 +1,2 @@
+[console_scripts]
+rsa-signature = rsa_signature.cli:cli

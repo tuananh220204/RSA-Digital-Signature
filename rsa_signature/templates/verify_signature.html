@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Xác minh chữ ký{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="fas fa-search"></i> Xác minh chữ ký RSA-PSS</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="file" class="form-label">
+                            <i class="fas fa-file"></i> File gốc cần xác minh
+                        </label>
+                        <input type="file" class="form-control" id="file" name="file" required>
+                        <div class="form-text">File gốc đã được ký trước đó</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="signature" class="form-label">
+                            <i class="fas fa-certificate"></i> File chữ ký (.sig hoặc .b64)
+                        </label>
+                        <input type="file" class="form-control" id="signature" name="signature" 
+                               accept=".sig,.b64" required>
+                        <div class="form-text">File chữ ký được tạo khi ký file gốc</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="public_key" class="form-label">
+                            <i class="fas fa-key"></i> Khóa công khai (.pem)
+                        </label>
+                        <input type="file" class="form-control" id="public_key" name="public_key" 
+                               accept=".pem,.key" required>
+                        <div class="form-text">Khóa công khai của người đã ký file</div>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>Quá trình xác minh:</strong>
+                        <ol class="mb-0 mt-2">
+                            <li>Hệ thống sẽ hash file gốc bằng SHA-256</li>
+                            <li>Giải mã chữ ký bằng khóa công khai</li>
+                            <li>So sánh hash để xác định tính toàn vẹn</li>
+                        </ol>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-info btn-lg">
+                            <i class="fas fa-search"></i> Xác minh chữ ký
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-4">
+                    <small class="text-muted">
+                        <i class="fas fa-shield-alt"></i>
+                        Xác minh chữ ký sẽ cho biết file có bị thay đổi hay không kể từ khi được ký.
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hướng dẫn xác minh -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h6><i class="fas fa-question-circle"></i> Hướng dẫn xác minh</h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="text-success"><i class="fas fa-check"></i> Chữ ký hợp lệ có nghĩa:</h6>
+                        <ul class="small">
+                            <li>File chưa bị thay đổi</li>
+                            <li>Chữ ký được tạo bởi người có khóa riêng</li>
+                            <li>File và chữ ký đúng cặp</li>
+                            <li>Dữ liệu đáng tin cậy</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-danger"><i class="fas fa-times"></i> Chữ ký không hợp lệ có nghĩa:</h6>
+                        <ul class="small">
+                            <li>File đã bị thay đổi</li>
+                            <li>Chữ ký bị hỏng hoặc sai</li>
+                            <li>Khóa công khai không đúng</li>
+                            <li>File và chữ ký không khớp</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lưu ý bảo mật -->
+        <div class="alert alert-warning mt-3">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>Lưu ý bảo mật:</strong> Chỉ tin tưởng chữ ký nếu bạn chắc chắn khóa công khai 
+            thuộc về người mà bạn tin tưởng. Khóa công khai giả có thể tạo ra chữ ký "hợp lệ" cho file độc hại.
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Kiểm tra kích thước file
+['file', 'signature', 'public_key'].forEach(function(fieldId) {
+    document.getElementById(fieldId).addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file && file.size > 16 * 1024 * 1024) {
+            alert('File quá lớn! Kích thước tối đa là 16MB.');
+            this.value = '';
+        }
+    });
+});
+</script>
+{% endblock %}</pre>
+    </div>

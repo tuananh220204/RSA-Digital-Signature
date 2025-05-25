@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Ký file{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="fas fa-signature"></i> Ký file bằng RSA-PSS</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="file" class="form-label">
+                            <i class="fas fa-file"></i> Chọn file cần ký
+                        </label>
+                        <input type="file" class="form-control" id="file" name="file" required>
+                        <div class="form-text">Kích thước tối đa: 16MB. Hỗ trợ các định dạng phổ biến.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="private_key" class="form-label">
+                            <i class="fas fa-key"></i> Chọn khóa riêng (.pem)
+                        </label>
+                        <input type="file" class="form-control" id="private_key" name="private_key" 
+                               accept=".pem,.key" required>
+                        <div class="form-text">File khóa riêng RSA ở định dạng PEM</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">
+                            <i class="fas fa-lock"></i> Mật khẩu khóa riêng (nếu có)
+                        </label>
+                        <input type="password" class="form-control" id="password" name="password" 
+                               placeholder="Để trống nếu khóa không được mã hóa">
+                        <div class="form-text">Chỉ cần nhập nếu khóa riêng được bảo vệ bằng mật khẩu</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="format" class="form-label">
+                            <i class="fas fa-cog"></i> Định dạng chữ ký
+                        </label>
+                        <select class="form-select" id="format" name="format">
+                            <option value="binary" selected>Binary (.sig) - Nhỏ gọn hơn</option>
+                            <option value="base64">Base64 (.b64) - Dễ chia sẻ qua text</option>
+                        </select>
+                        <div class="form-text">Binary thường được dùng cho lưu trữ, Base64 cho việc truyền tải</div>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>Lưu ý:</strong> Quá trình ký sử dụng thuật toán RSA-PSS với SHA-256 
+                        để đảm bảo tính an toàn và toàn vẹn của file.
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-signature"></i> Ký file
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-4">
+                    <small class="text-muted">
+                        <i class="fas fa-shield-alt"></i>
+                        Hệ thống sử dụng RSA-PSS với SHA-256 - một trong những phương pháp ký số an toàn nhất hiện tại.
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hướng dẫn -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h6><i class="fas fa-question-circle"></i> Hướng dẫn sử dụng</h6>
+            </div>
+            <div class="card-body">
+                <ol class="small">
+                    <li>Chọn file cần ký (tối đa 16MB)</li>
+                    <li>Chọn file khóa riêng (.pem) mà bạn đã tạo trước đó</li>
+                    <li>Nhập mật khẩu nếu khóa riêng được mã hóa</li>
+                    <li>Chọn định dạng chữ ký phù hợp</li>
+                    <li>Nhấn "Ký file" để tạo chữ ký</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('file').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file && file.size > 16 * 1024 * 1024) {
+        alert('File quá lớn! Kích thước tối đa là 16MB.');
+        this.value = '';
+    }
+});
+</script>
+{% endblock %}</pre>
+    </div>
