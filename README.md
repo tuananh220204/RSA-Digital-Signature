@@ -3,7 +3,8 @@
 🔐 **Hệ thống chữ ký số RSA hoàn chỉnh với Python** - Tạo, ký và xác minh chữ ký số một cách an toàn và hiệu quả.
 
 <!-- Chèn ảnh minh họa tại đây -->
-![RSA Digital Signature Demo](docs/images/demo.png)
+![RSA Digital Signature Demo](![image](https://github.com/user-attachments/assets/03be88cb-2895-4563-a9cb-cdb302fcdf6d)
+)
 *Giao diện web của hệ thống chữ ký số RSA*
 
 ## 🚀 Tính năng chính
