@@ -3,7 +3,7 @@
 🔐 **Hệ thống chữ ký số RSA hoàn chỉnh với Python** - Tạo, ký và xác minh chữ ký số một cách an toàn và hiệu quả.
 
 <!-- Chèn ảnh minh họa tại đây -->
-![RSA Digital Signature Demo](![image](https://github.com/user-attachments/assets/8732c45f-e5dc-4092-abee-7655d51351c9)
+![RSA Digital Signature Demo](![image]([https://github.com/user-attachments/assets/8732c45f-e5dc-4092-abee-7655d51351c9](https://private-user-images.githubusercontent.com/131762849/447333288-eca2b2ce-83db-482b-9278-cb5feca70a58.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDgxNzgyMTAsIm5iZiI6MTc0ODE3NzkxMCwicGF0aCI6Ii8xMzE3NjI4NDkvNDQ3MzMzMjg4LWVjYTJiMmNlLTgzZGItNDgyYi05Mjc4LWNiNWZlY2E3MGE1OC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNTI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDUyNVQxMjU4MzBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00ZDcxMzFjZDYzYjg2OTMzMDIwNTE5ZDBhZGQ2ZTM2ZTI1MjRhNzQwZmQ4NzAwOTQ0NDhhNDM4Y2E3NDdjNGJkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.dbFHfF6CRIITbLsYGTxXlfM75c2GhBvVmW8O-yufERc))
 )
 *Giao diện web của hệ thống chữ ký số RSA*
 
