@@ -7,30 +7,32 @@
 
 *Giao diện web của hệ thống chữ ký số RSA*
 
+```mermaid
 flowchart TD
     A[Tạo cặp khóa RSA] --> B[Khóa riêng tư - Private Key]
     A --> C[Khóa công khai - Public Key]
+
     B --> D[Lưu khóa riêng<br/>📁 private_key.pem<br/>🔒 Có thể mã hóa bằng mật khẩu]
     C --> E[Lưu khóa công khai<br/>📁 public_key.pem<br/>🌐 Chia sẻ công khai]
-    
+
     F[File cần ký<br/>📄 document.txt] --> G[Hash SHA-256<br/>🔢 Tạo fingerprint]
     G --> H[RSA-PSS Signing<br/>🔏 Ký hash bằng khóa riêng]
     D --> H
     H --> I[Chữ ký số<br/>📝 signature.sig/.b64]
-    
+
     J[Xác minh chữ ký] --> K[Tải file gốc]
     J --> L[Tải chữ ký]
     J --> M[Tải khóa công khai]
-    
+
     K --> N[Hash SHA-256<br/>🔢 Hash file hiện tại]
     L --> O[RSA-PSS Verification<br/>🔍 Giải mã chữ ký bằng khóa công khai]
     E --> O
-    
+
     N --> P{So sánh Hash}
     O --> P
     P -->|Khớp| Q[✅ Chữ ký hợp lệ<br/>File không bị thay đổi]
     P -->|Không khớp| R[❌ Chữ ký không hợp lệ<br/>File đã bị thay đổi]
-    
+
     style A fill:#e1f5fe
     style B fill:#ffebee
     style C fill:#e8f5e8
@@ -38,6 +40,7 @@ flowchart TD
     style O fill:#f3e5f5
     style Q fill:#e8f5e8
     style R fill:#ffebee
+
     
 ## 🚀 Tính năng chính
 
