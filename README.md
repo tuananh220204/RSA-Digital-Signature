@@ -10,7 +10,6 @@
 flowchart TD
     A[Tạo cặp khóa RSA] --> B[Khóa riêng tư - Private Key]
     A --> C[Khóa công khai - Public Key]
-    
     B --> D[Lưu khóa riêng<br/>📁 private_key.pem<br/>🔒 Có thể mã hóa bằng mật khẩu]
     C --> E[Lưu khóa công khai<br/>📁 public_key.pem<br/>🌐 Chia sẻ công khai]
     
@@ -39,6 +38,7 @@ flowchart TD
     style O fill:#f3e5f5
     style Q fill:#e8f5e8
     style R fill:#ffebee
+    
 ## 🚀 Tính năng chính
 
 ### ✨ Tính năng cốt lõi
