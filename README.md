@@ -7,8 +7,7 @@
 
 *Giao diện web của hệ thống chữ ký số RSA*
 
-```mermaid
-flowchart TD
+graph TD
     A[Tạo cặp khóa RSA] --> B[Khóa riêng tư - Private Key]
     A --> C[Khóa công khai - Public Key]
 
